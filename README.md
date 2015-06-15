@@ -9,7 +9,7 @@ Installation
 Add spree_unifaun_export to your Gemfile:
 
 ```ruby
-gem 'spree_unifaun_export', github: 'ridem/spree_unifaun_export', branch: 'master'
+gem 'spree_unifaun_export', github: 'ridem/spree_unifaun_export', branch: '3-0-stable'
 ```
 
 Bundle your dependencies and run the installation generator:
