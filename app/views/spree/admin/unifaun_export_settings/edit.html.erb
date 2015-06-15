@@ -1,0 +1,44 @@
+<% content_for :page_title do %>
+  <%= Spree.t(:settings, scope: :unifaun_export) %>
+<% end %>
+
+<%= form_tag(admin_unifaun_export_settings_path, method: :put) do %>
+  <fieldset class="no-border-top">
+    <div data-hook="admin_unifaun_export_method_form_fields">
+      <div class="row">
+        <div class="col-md-6">
+          <fieldset class="no-border-bottom">
+            <legend><%= Spree.t(:package_label, scope: :unifaun_export) %></legend>
+
+            <div class="form-group">
+              <%= label_tag :package_weight, Spree.t(:package_weight, scope: :unifaun_export) %>
+              <%= preference_field_tag(:package_weight, Spree::UnifaunExport::Config[:package_weight], class: 'form-control') %>
+              <%= content_tag(:span, Spree.t(:package_weight_info, scope: :unifaun_export), class: 'info') %>
+            </div>
+
+            <div class="form-group">
+              <%= label_tag :sender_quick_id, Spree.t(:sender_quick_id, scope: :unifaun_export) %>
+              <%= preference_field_tag(:sender_quick_id, Spree::UnifaunExport::Config[:sender_quick_id], class: 'form-control') %>
+              <%= content_tag(:span, Spree.t(:sender_quick_id_info, scope: :unifaun_export), class: 'info') %>
+            </div>
+
+            <div class="form-group">
+              <%= label_tag :contents, Spree.t(:contents, scope: :unifaun_export) %>
+              <%= preference_field_tag(:contents, Spree::UnifaunExport::Config[:contents], class: 'form-control') %>
+              <%= content_tag(:span, Spree.t(:contents_info, scope: :unifaun_export), class: 'info') %>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <div class="col-md-6">
+        </div>
+      </div>
+
+      <div class="form-actions" data-hook="buttons">
+        <%= button Spree.t('actions.update'), 'save' %>
+      </div>
+
+    </div>
+  </fieldset>
+<% end %>

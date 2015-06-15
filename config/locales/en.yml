@@ -1,0 +1,12 @@
+---
+en:
+  spree:
+    unifaun_export:
+      package_label: Package Settings
+      package_weight: Package Weight
+      settings: Unifaun Export Settings
+      package_weight_info: The weight in grams of the package without its content (integer)
+      sender_quick_id: Sender Quick ID
+      sender_quick_id_info: Your Unifaun Sender Quick ID. Most probably 1.
+      contents: Contents
+      contents_info: Contents field in the export. Describes what is in the package.

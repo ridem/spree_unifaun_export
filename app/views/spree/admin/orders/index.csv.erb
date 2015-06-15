@@ -1,0 +1,14 @@
+<%- headers = ['[SenderQuickID]','[OrderNo]','[Name]','[Address1]','[Address2]','[Zipcode]','[City]','[State]','[Country]','[Email]','[Phone]','[Reference]','[Contents]','[Weight]'] -%>
+<%- ordersToExport = @search.result(distinct: true) -%>
+<%= CSV.generate({col_sep: "\t"}) do |csv| =%>
+  <%- csv << headers -%>
+  <%- ordersToExport.each do |order| -%>
+    <%- weight = @packageWeight.to_f -%>
+    <%- package_description = '' -%>
+    <%- order.line_items.each do |line_item| -%>
+      <%- weight += line_item.variant.weight.to_f * line_item.quantity.to_f -%>
+      <%- package_description += line_item.quantity.to_s + ' ' +line_item.variant.sku+', ' -%>
+    <%- end -%>
+    <%- csv << [@senderQuickID,order.number,order.ship_address.full_name,order.ship_address.address1,order.ship_address.address2, order.ship_address.zipcode, order.ship_address.city, order.ship_address.state[:abbr], order.ship_address.country[:iso], order.email, order.ship_address.phone, package_description[0,package_description.length - 2],@contents,weight.to_int]  -%>
+  <%- end -%>
+<%- end -%>
