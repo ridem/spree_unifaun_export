@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.description = 'Export Orders in CSV format (Unifaun style)'
   s.required_ruby_version = '>= 2.0.0'
 
-  # s.author    = 'You'
-  # s.email     = 'you@example.com'
+  s.author    = 'Mehdi Rejraji'
+  s.email     = 'mehdi.rejraji@gmail.com'
   # s.homepage  = 'http://www.spreecommerce.com'
 
   #s.files       = `git ls-files`.split("\n")
